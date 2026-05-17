@@ -1,0 +1,38 @@
+mainmenu "IP Module Configuration"
+
+source "Kconfig.zephyr"
+
+menu "IP Module"
+
+config IP_MODULE
+    bool "Enable IP Module"
+    default y
+    select SMF
+    help
+      Enable the IP module state machine.
+
+config IP_MODULE_LOG_LEVEL
+    int "IP Module log level"
+    depends on IP_MODULE
+    default 3
+    range 0 4
+    help
+      Set the log verbosity for the IP module.
+      0 = OFF, 1 = ERR, 2 = WRN, 3 = INF, 4 = DBG
+
+config IP_MODULE_THREAD_STACK_SIZE
+    int "IP Module thread stack size (bytes)"
+    depends on IP_MODULE
+    default 2048
+    help
+      Stack size for the IP module processing thread.
+
+config IP_MODULE_THREAD_PRIORITY
+    int "IP Module thread priority"
+    depends on IP_MODULE
+    default 5
+    help
+      Cooperative or preemptive priority for the IP module thread.
+      Negative values are cooperative, non-negative are preemptive.
+
+endmenu
