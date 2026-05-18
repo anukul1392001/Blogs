@@ -1,0 +1,17 @@
+common:
+  harness: net
+  tags:
+    - net
+    - wifi
+    - esp_at
+
+sample:
+  name: ESP-AT Wi-Fi connection test
+  description: Connect to a Wi-Fi network through an ESP-AT module.
+
+tests:
+  sample.net.wifi.esp_at:
+    platform_allow:
+      - nrf52dk_nrf52832
+    integration_platforms:
+      - nrf52dk_nrf52832
