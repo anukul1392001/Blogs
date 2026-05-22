@@ -9,19 +9,23 @@
  *
  */
 
+#include <log.h>
 #include <sys.h>
 #include <ip_module.h>
+
+LOG_REGISTER(MAIN, CONFIG_IP_MODULE_LOG_LEVEL);
 
 int
 main(void)
 {
-    sys_init();
+    SysInit();
 
     // start_communication_thread();
 
     while (1)
     {
-        // k_sleep();”’
+        PRINT_INF("Application Running");
+        k_sleep(K_SECONDS(10));
     }
 
     return (0);

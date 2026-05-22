@@ -21,6 +21,6 @@ struct sm_obj
     ip_module_ctx_t *ip_ctx;
 };
 
-err_t ip_module_sm_run(ip_state_t state);
+uint16_t ip_module_sm_run(ip_state_t state);
 
 #endif /* IP_MODULE_SM_H */

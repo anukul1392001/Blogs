@@ -12,9 +12,8 @@
 #ifndef IP_MODULE_H
 #define IP_MODULE_H
 
-#include <common_error.h>
-#include <ip_module_states.h>
 #include <hw_timer.h>
+#include <ip_module_states.h>
 
 typedef enum
 {
@@ -31,20 +30,20 @@ typedef struct
 
 typedef struct
 {
-    phy_type_t         phy_type;
+    phy_type_t          phy_type;
 
-    hw_timer_t         hw_timer;
+    hw_timer_handlers_t timer_handler;
 
-    ip_module_config_t ip_config;
+    ip_module_config_t  ip_config;
 
-    ip_state_t         sm_state;
-    ip_state_t         next_state;
+    ip_state_t          sm_state;
+    ip_state_t          next_state;
 
-    err_t              sm_error;
+    uint16_t            sm_error;
 } ip_module_ctx_t;
 
 
-err_t IPModuleInit(void *ctx);
-err_t IPModuleRun(void *ctx);
+uint16_t IPModuleInit(void *ctx);
+uint16_t IPModuleRun(void *ctx);
 
 #endif /* IP_MODULE_H */

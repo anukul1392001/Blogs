@@ -9,6 +9,7 @@ set(ZEPHYR_PORT_INCLUDE_DIRS
     src/port/zephyr/smf
     src/port/zephyr/threads
     src/port/zephyr/hw_timer
+    src/port/zephyr/kernel
 )
 
 target_include_directories(app PRIVATE
@@ -33,6 +34,8 @@ endif()
 
 target_sources(app PRIVATE
     src/core/sys.c
+    src/port/zephyr/hw_timer/hw_timer.c
+    src/port/zephyr/kernel/kernel_utils.c
 )
 
 # Add future modules using the same pattern:

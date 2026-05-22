@@ -10,8 +10,10 @@
  */
 
 #include <ip_module_sm.h>
+#include <hw_timer.h>
+#include <common_error.h>
 
-err_t
+uint16_t
 ip_module_sm_run(ip_state_t state)
 {
     uint16_t err = ERR_OK;
